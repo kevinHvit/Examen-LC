@@ -4,6 +4,7 @@ import React from 'react'
 import { AiOutlineFacebook } from 'react-icons/ai';
 import { AiOutlineInstagram } from 'react-icons/ai';
 import { AiOutlineLinkedin } from 'react-icons/ai';
+import { CgMail } from 'react-icons/Cg';
 
 const Footer = () => {
   return (
@@ -28,15 +29,15 @@ const Footer = () => {
                 </a>
                 Kevin.Castrillo
               </li>
-              <li className=''>
+              <li className='text-white '>
                 <a href="https://www.linkedin.com/in/#" target="_blank" rel="noreferrer">
                   <AiOutlineLinkedin />
                 </a>
                 Kevin Castrillo Jimenez
               </li>
-              <li>
+              <li className='text-white'>
                 <a href="https://www.gmail.com/#" target="_blank" rel="noreferrer">
-                  <AiOutlineLinkedin />
+                  <CgMail/>
                 </a>
                 castrillo.jimenezk@gmai.com
               </li>
