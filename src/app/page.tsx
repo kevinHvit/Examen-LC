@@ -1,95 +1,80 @@
+
+"use client"
 import Image from 'next/image'
-import styles from './page.module.css'
+import { MutableRefObject, useRef } from 'react';
+import ViewProjects from './components/ViewProjects'
+import { ProjectProvider } from './provider/ProjectProvider'
+import { ClientOnly } from './components/ClientOnly'
+import "bootstrap/dist/css/bootstrap.min.css";
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Presentation from './components/Presentation';
+import CallAction from './components/CallAction';
 
 export default function Home() {
+  const presentation = useRef<HTMLDivElement>(null);
+  const projects = useRef<HTMLDivElement>(null);
+  const callAction = useRef<HTMLDivElement>(null);
+  const contact = useRef<HTMLDivElement>(null);
+
+
+  const handleNavigationPresentation = () => {
+    if (presentation.current) {
+      presentation.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavigationProjects = () => {
+    if (projects.current) {
+      projects.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavigationCallAction = () => {
+    if (callAction.current) {
+      callAction.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleNavigationContact = () => {
+    if (contact.current) {
+      contact.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <ClientOnly>
+      <ProjectProvider>
+        <Header
+          handleNavigationPresentation={handleNavigationPresentation}
+          handleNavigationProjects={handleNavigationProjects}
+          handleNavigationCallAction={handleNavigationCallAction}
+          handleNavigationContact={handleNavigationContact}
         />
-      </div>
+        <main className="container">
+          <div ref={presentation} className="mb-5">
+            <Presentation />
+          </div>
+          <div className="row mb-5">
+            <div ref={projects} className='col-6'>
+              <ViewProjects />
+            </div>
+            
+            <div ref={callAction} className="bg-dark mb-5 col-6">
+              <CallAction />
+            </div>
+          </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+        </main>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        <div ref={contact}>
+          <Footer />
+        </div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+      </ProjectProvider>
+    </ClientOnly>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
   )
 }
