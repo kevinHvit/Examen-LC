@@ -1,16 +1,12 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import useProject from '../hooks/useProject';
 import { Carousel } from 'react-bootstrap';
 
 
 const ViewProjects = () => {
-    const [index, setIndex] = useState(0);
-
-    const handleSelect = (selectedIndex: number) => {
-        setIndex(selectedIndex);
-    };
+    
     const data = useProject();
     const projects = data?.projects || [];
 

@@ -3,7 +3,7 @@ import React from 'react';
 
 const Header = (props:any) => {
   return (
-    <header className="bg-dark">
+    <header className="bg-dark rounded-2">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-4 col-md-6">

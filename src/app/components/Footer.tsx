@@ -8,7 +8,7 @@ import { CgMail } from 'react-icons/Cg';
 
 const Footer = () => {
   return (
-    <footer className="bg-dark p-5">
+    <footer className="bg-dark p-5 rounded-1">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-12 col-md-6">

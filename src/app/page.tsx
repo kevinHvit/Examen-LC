@@ -62,7 +62,7 @@ export default function Home() {
               <ViewProjects />
             </div>
             
-            <div ref={callAction} className="bg-dark mb-5 col-6">
+            <div ref={callAction} className="bg-dark mb-5 col-6 rounded-2">
               <CallAction />
             </div>
           </div>
