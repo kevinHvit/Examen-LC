@@ -6,7 +6,7 @@ import { Carousel } from 'react-bootstrap';
 
 
 const ViewProjects = () => {
-    
+
     const data = useProject();
     const projects = data?.projects || [];
 
@@ -14,12 +14,11 @@ const ViewProjects = () => {
     return (
         <div>
             <h2 className="text-center">Mis Proyectos</h2>
-
             <Carousel interval={3000}>
                 {projects.map((slide) => (
                     <Carousel.Item key={slide.id}>
                         <div className="d-block w-100 slide-content p-3"     >
-                            <div className="card"  style={
+                            <div className="card" style={
                                 {
                                     backgroundColor: slide.color
                                 }
@@ -32,13 +31,10 @@ const ViewProjects = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </Carousel.Item>
                 ))}
-
             </Carousel>
-
         </div>
     )
 }

@@ -17,7 +17,7 @@ export interface ProjectContextData {
 }
 
 const ProjectContext = createContext<ProjectContextData | null>(null);
-interface ProjectProviderProps extends React.PropsWithChildren<{}> {}
+interface ProjectProviderProps extends React.PropsWithChildren<{}> { }
 const ProjectProvider: React.FC<ProjectProviderProps> = ({ children }) => {
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -33,7 +33,7 @@ const ProjectProvider: React.FC<ProjectProviderProps> = ({ children }) => {
         };
       });
       if (response.status === 200) {
-        setProjects(newData );
+        setProjects(newData);
       }
     } catch (error) {
       console.log(error);
@@ -43,15 +43,15 @@ const ProjectProvider: React.FC<ProjectProviderProps> = ({ children }) => {
   useEffect(() => {
     getProjects();
   }, []);
-  function generarNumero(numero:number){
-    return (Math.random()*numero).toFixed(0);
+  function generarNumero(numero: number) {
+    return (Math.random() * numero).toFixed(0);
   }
-  
-  function colorRGB():string{
-    let coolor = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
+
+  function colorRGB(): string {
+    let coolor = "(" + generarNumero(255) + "," + generarNumero(255) + "," + generarNumero(255) + ")";
     return "rgb" + coolor;
   }
-  
+
 
   return (
     <ProjectContext.Provider value={{ projects }}>

@@ -17,7 +17,6 @@ export default function Home() {
   const callAction = useRef<HTMLDivElement>(null);
   const contact = useRef<HTMLDivElement>(null);
 
-
   const handleNavigationPresentation = () => {
     if (presentation.current) {
       presentation.current.scrollIntoView({ behavior: 'smooth' });
@@ -42,8 +41,6 @@ export default function Home() {
     }
   };
 
-
-
   return (
     <ClientOnly>
       <ProjectProvider>
@@ -61,20 +58,15 @@ export default function Home() {
             <div ref={projects} className='col-6'>
               <ViewProjects />
             </div>
-            
             <div ref={callAction} className="bg-dark mb-5 col-6 rounded-2">
               <CallAction />
             </div>
           </div>
-
         </main>
-
         <div ref={contact}>
           <Footer />
         </div>
-
       </ProjectProvider>
     </ClientOnly>
-
   )
 }
