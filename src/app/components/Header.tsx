@@ -24,7 +24,7 @@ const Header = (props: any) => {
                 </li>
                 <li className="btn nav-item" onClick={props.handleNavigationCallAction}>
                   <a className="nav-link text-white">
-                    informacion
+                    Información
                   </a>
                 </li>
                 <li className="btn nav-item" onClick={props.handleNavigationContact}>
@@ -33,7 +33,6 @@ const Header = (props: any) => {
                   </a>
                 </li>
               </ul>
-
             </nav>
           </div>
         </div>

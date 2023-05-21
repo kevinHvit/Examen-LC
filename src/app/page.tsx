@@ -1,6 +1,5 @@
 
 "use client"
-import Image from 'next/image'
 import { MutableRefObject, useRef } from 'react';
 import ViewProjects from './components/ViewProjects'
 import { ProjectProvider } from './provider/ProjectProvider'
